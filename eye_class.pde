@@ -12,7 +12,7 @@ class Eye
     eyeColor = color(0, 0, 255);
     acc = new PVector(0, 0.1);
     vel = new PVector(0, 0);
-    loc = new PVector(width/2, random(100,400));
+    loc = new PVector(width/2, random(100, 400));
     size = 50;
     irisSize = 25;
     pupilSize = 10;
@@ -31,10 +31,13 @@ class Eye
   }
   void interact(Eye e)
   {
-    for(int i = 0; i < 360; i++)
+    for (int i = 0; i < 360; i++)
     {
       int degree = i;
-      if(
+      float x = sin(degrees(degree))*(size/2)+loc.x;
+      float y = cos(degrees(degree))*(size/2)+loc.y;
+      stroke(255, 0, 0);
+      line(loc.x, loc.y, x, y);
     }
   }
   void move()

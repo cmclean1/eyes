@@ -14,4 +14,5 @@ void draw()
   ee.display();
   e.move();
   ee.move();
+  e.interact(ee);
 }
