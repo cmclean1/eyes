@@ -13,7 +13,26 @@ void draw()
   e.display();
   ee.display();
   e.interact(ee);
+  ee.interact(e);
   e.move();
   ee.move();
 }
-
+void keyPressed()
+{
+  if(keyCode == LEFT)
+  {
+    e.vel.x--;
+  }
+  if(keyCode == RIGHT)
+  {
+    e.vel.x++;
+  }
+  if(keyCode == UP)
+  {
+    e.vel.y--;
+  }
+  if(keyCode == DOWN)
+  {
+    e.vel.y++;
+  }
+}

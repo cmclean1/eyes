@@ -21,10 +21,10 @@ class Eye
     fill(255);
     noStroke();
     ellipse(loc.x, loc.y, size, size);
-    fill(eyeColor);
-    ellipse(loc.x, loc.y, irisSize, irisSize);
-    fill(0);
-    ellipse(loc.x, loc.y, pupilSize, pupilSize);
+//    fill(eyeColor);
+//    ellipse(loc.x, loc.y, irisSize, irisSize);
+//    fill(0);
+//    ellipse(loc.x, loc.y, pupilSize, pupilSize);
   }
   void look()
   {
@@ -45,15 +45,15 @@ class Eye
     float eInitialMomentumx = einitialVx*eMass;
     float eInitialMomentumy = einitialVy*eMass;
 
-    for (int i = 0; i < 360; i++)
-    {
-      int degree = i;
-      float x = sin(degrees(degree))*(size/2)+loc.x;
-      float y = cos(degrees(degree))*(size/2)+loc.y;
-      strokeWeight(1);
-      stroke(255, 0, 0);
-      line(loc.x, loc.y, x, y);
-    }
+//    for (int i = 0; i < 360; i++)
+//    {
+//      int degree = i;
+//      float x = sin(degrees(degree))*(size/2)+loc.x;
+//      float y = cos(degrees(degree))*(size/2)+loc.y;
+//      strokeWeight(1);
+//      stroke(255, 0, 0);
+//      line(loc.x, loc.y, x, y);
+//    }
     if (dist(loc.x, loc.y, e.loc.x, e.loc.y) < (e.size + size)/2)
     {
       strokeWeight(10);
@@ -62,10 +62,10 @@ class Eye
       float x = dist(loc.x, 0, e.loc.x, 0);
       float y = dist(0, loc.y, 0, e.loc.y);
       float theta = asin(y/hyp);
-      vel.y = -(sin(theta))*y/1.1;
-      vel.x = -(cos(theta))*x/1.1;
-      e.vel.y = (sin(theta))*y/1.1;
-      e.vel.x =  (cos(theta))*x/1.1;
+      vel.y = -(sin(theta))*(vel.y+1)/1.1;
+      vel.x = -(cos(theta))*(vel.x+1)/1.1;
+      e.vel.y = (sin(theta))*(e.vel.y+1)/1.1;
+      e.vel.x =  (cos(theta))*(e.vel.x+1)/1.1;
       println(x);
 
       //      vel.y = -(initialMomentumy+eInitialMomentumy)/mass;
